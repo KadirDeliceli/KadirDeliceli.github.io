@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kadir Deliceli — Backend &amp; AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f6f7f9;
+    --card:#ffffff;
+    --ink:#16181d;
+    --ink-2:#4a5058;
+    --ink-3:#7a828c;
+    --line:#e3e6ea;
+    --line-2:#eef0f3;
+    --accent:#1f3a5f;
+    --accent-soft:#eef2f7;
+    --tag-bg:#f1f3f6;
+    --tag-ink:#3d4650;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14161a; --bg-soft:#1a1d22; --card:#1a1d22; --ink:#eceef1; --ink-2:#b4bbc4;
+      --ink-3:#8b939d; --line:#2b3037; --line-2:#23272d; --accent:#8fb2dd;
+      --accent-soft:#1f2732; --tag-bg:#242931; --tag-ink:#c2c9d2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14161a; --bg-soft:#1a1d22; --card:#1a1d22; --ink:#eceef1; --ink-2:#b4bbc4;
+    --ink-3:#8b939d; --line:#2b3037; --line-2:#23272d; --accent:#8fb2dd;
+    --accent-soft:#1f2732; --tag-bg:#242931; --tag-ink:#c2c9d2;
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%}
+  a{color:inherit}
+
+  /* ---- top bar ---- */
+  .bar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line-2);
+  }
+  .bar-in{
+    max-width:880px;margin:0 auto;padding:11px 22px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .brand{font-weight:700;letter-spacing:-.01em;font-size:15px;margin-right:auto;white-space:nowrap}
+  .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--ink-2)}
+  .navlinks a{text-decoration:none}
+  .navlinks a:hover{color:var(--accent)}
+  @media (max-width:640px){.navlinks{display:none}}
+  .lang{
+    display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
+    font-size:12px;font-weight:600;flex:none;
+  }
+  .lang button{
+    appearance:none;border:0;background:transparent;color:var(--ink-3);
+    padding:5px 11px;cursor:pointer;font:inherit;line-height:1.5;
+  }
+  .lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 90px}
+
+  /* ---- hero ---- */
+  header.hero{padding:56px 0 8px}
+  .hero h1{
+    font-size:clamp(30px,6vw,42px);line-height:1.1;letter-spacing:-.025em;
+    margin:0 0 10px;font-weight:700;
+  }
+  .role{color:var(--accent);font-weight:600;font-size:16px;margin:0 0 18px}
+  .lede{color:var(--ink-2);max-width:62ch;margin:0 0 24px}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px;font-size:13.5px;
+  }
+  .meta a,.meta span{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border:1px solid var(--line);border-radius:999px;
+    text-decoration:none;color:var(--ink-2);background:var(--card);
+  }
+  .meta a:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---- sections ---- */
+  section{padding-top:52px}
+  h2{
+    font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;
+    color:var(--accent);margin:0 0 22px;padding-bottom:9px;border-bottom:1px solid var(--line);
+  }
+  h3{font-size:17px;font-weight:650;letter-spacing:-.01em;margin:0 0 3px}
+
+  /* ---- experience ---- */
+  .job{margin-bottom:6px}
+  .job-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:2px}
+  .org{color:var(--ink-2);font-size:14.5px}
+  .when{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+    color:var(--ink-3);margin-left:auto;white-space:nowrap;
+  }
+  ul.pts{margin:12px 0 0;padding-left:0;list-style:none}
+  ul.pts li{position:relative;padding-left:18px;margin-bottom:8px;color:var(--ink-2)}
+  ul.pts li::before{
+    content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;
+    border-radius:50%;background:var(--accent);opacity:.55;
+  }
+
+  /* ---- projects ---- */
+  .proj{
+    border:1px solid var(--line);border-radius:12px;background:var(--card);
+    padding:20px 22px;margin-bottom:14px;
+  }
+  .proj-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+  .sub{color:var(--ink-3);font-size:13.5px;margin:0 0 12px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0}
+  .tag{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;
+    background:var(--tag-bg);color:var(--tag-ink);padding:3px 9px;border-radius:5px;
+  }
+  .repo{
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    overflow-wrap:anywhere;
+  }
+  .repo:hover{text-decoration:underline}
+
+  /* ---- skills ---- */
+  .skill-row{
+    display:grid;grid-template-columns:172px 1fr;gap:6px 20px;
+    padding:11px 0;border-bottom:1px solid var(--line-2);align-items:start;
+  }
+  .skill-row:last-child{border-bottom:0}
+  .skill-row dt{font-weight:600;font-size:14px}
+  .skill-row dd{margin:0;color:var(--ink-2);font-size:14.5px}
+  @media (max-width:600px){.skill-row{grid-template-columns:1fr;gap:2px}}
+
+  /* ---- education / misc ---- */
+  .edu{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+  .facts{color:var(--ink-2);margin:6px 0 0;font-size:14.5px}
+
+  footer{
+    margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+    color:var(--ink-3);font-size:13px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+  }
+  footer a{color:var(--ink-2)}
+  [data-en]{display:none}
+  html[lang="en"] [data-tr]{display:none}
+  html[lang="en"] [data-en]{display:revert}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="brand">Kadir Deliceli</span>
+    <nav class="navlinks">
+      <a href="#deneyim"><span data-tr>Deneyim</span><span data-en>Experience</span></a>
+      <a href="#projeler"><span data-tr>Projeler</span><span data-en>Projects</span></a>
+      <a href="#beceriler"><span data-tr>Beceriler</span><span data-en>Skills</span></a>
+      <a href="#egitim"><span data-tr>Eğitim</span><span data-en>Education</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btn-tr" aria-pressed="true">TR</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>Kadir Deliceli</h1>
+  <p class="role">
+    <span data-tr>Backend &amp; Yapay Zeka Geliştirici · Mobil Geliştirici</span>
+    <span data-en>Backend &amp; AI Developer · Mobile Developer</span>
+  </p>
+  <p class="lede">
+    <span data-tr>Bartın Üniversitesi Bilgisayar Mühendisliği öğrencisiyim (GNO 3.65). Python ve FastAPI ile ölçeklenebilir REST API'ler, LangChain ve RAG tabanlı LLM sistemleri kuruyorum; Kotlin ve Jetpack Compose ile Android, Kotlin Multiplatform ile Android–iOS–web arayüzleri geliştiriyorum. Bir web uygulamasını Docker ile konteynerize edip Kubernetes üzerinde çalıştırdım ve Jenkins ile uçtan uca CI/CD hattı kurdum.</span>
+    <span data-en>Computer Engineering student at Bartın University (GPA 3.65/4.00). I build scalable REST APIs with Python and FastAPI, LLM systems on LangChain and RAG, Android apps with Kotlin and Jetpack Compose, and Android–iOS–web clients with Kotlin Multiplatform. I containerised a web app with Docker, ran it on Kubernetes and wired up an end-to-end Jenkins CI/CD pipeline.</span>
+  </p>
+  <div class="meta">
+    <a href="mailto:d.kadir5734@gmail.com">d.kadir5734@gmail.com</a>
+    <a href="https://github.com/KadirDeliceli" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kadir-deliceli" target="_blank" rel="noopener">LinkedIn</a>
+    <span data-tr>Sinop, Türkiye</span><span data-en>Sinop, Türkiye</span>
+  </div>
+</header>
+
+<section id="deneyim">
+  <h2><span data-tr>Deneyim</span><span data-en>Experience</span></h2>
+  <div class="job">
+    <div class="job-top">
+      <h3><span data-tr>Stajyer Mühendis</span><span data-en>Engineering Intern</span></h3>
+      <span class="when">2026.08 — 2026.09</span>
+    </div>
+    <div class="org"><span data-tr>Kuzey Anadolu Kalkınma Ajansı (KUZKA) — Sinop Yatırım Destek Ofisi</span><span data-en>North Anatolia Development Agency (KUZKA) — Sinop Investment Support Office</span></div>
+    <ul class="pts">
+      <li><span data-tr><strong>FonRadar AI:</strong> Farklı kaynaklardan otomatik veri toplayan ve hibe/destek fonlarını uygunluk açısından LLM ile puanlayan tam yığın bir platform geliştirdim. Ajans uzmanlarının 4-5 gün süren manuel fon tarama sürecini 5-10 dakikaya indirdim.</span><span data-en><strong>FonRadar AI:</strong> Built a full-stack platform that scrapes grant and funding data from multiple sources and scores each fund for eligibility with an LLM, cutting the agency's manual review cycle from 4–5 days to 5–10 minutes.</span></li>
+      <li><span data-tr><strong>Kuzey Kapısı — Sinop Akıllı Turizm Platformu:</strong> LangChain ve RAG mimarisiyle akıllı rota planlayıcı ve yerel bilgi asistanı kurdum; Kotlin Multiplatform ile Android, iOS ve web istemcilerini tek kod tabanından yazdım.</span><span data-en><strong>Kuzey Kapısı — Sinop Smart Tourism Platform:</strong> Built a route planner and local knowledge assistant on LangChain and RAG, plus Android, iOS and web clients from a single Kotlin Multiplatform codebase.</span></li>
+      <li><span data-tr>Servisleri REST API standartlarında tasarladım; uç noktaları Postman ile test edip Git üzerinden sürüm yönetimi yaptım ve Linux sunucu ortamında çalıştırdım.</span><span data-en>Designed the services to REST conventions, tested endpoints with Postman, managed versioning through Git and deployed on Linux servers.</span></li>
+      <li><span data-tr>Yatırım Destek Ofisi ekibiyle haftalık iterasyonlar halinde çalışarak teknik çıktıları bölgesel yatırım ve hibe süreçlerine entegre ettim.</span><span data-en>Worked in weekly iterations with the Investment Support Office team, feeding technical output into regional investment and grant workflows.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="projeler">
+  <h2><span data-tr>Projeler</span><span data-en>Projects</span></h2>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>FonRadar AI</h3>
+      <span class="when">2026.08</span>
+    </div>
+    <p class="sub"><span data-tr>Hibe &amp; Destek Analiz Platformu — KUZKA</span><span data-en>Grant &amp; Incentive Analysis Platform — KUZKA</span></p>
+    <ul class="pts">
+      <li><span data-tr>Fon ve destek programı verilerini otomatik toplayan, uygunluk kriterlerine göre LLM ile puanlayan tam yığın bir sistem. Ajans uzmanlarının iç kullanımı için geliştirildi.</span><span data-en>A full-stack system that collects funding programme data automatically and scores it for eligibility with an LLM — built for internal use by agency specialists.</span></li>
+      <li><span data-tr>Python tarafında FastAPI servisi, BeautifulSoup tabanlı kazıyıcı ve LangChain üzerinden Groq / Gemini entegrasyonu; skorlama ve duyuru filtreleme ayrı modüller olarak kuruldu.</span><span data-en>FastAPI service, a BeautifulSoup scraper and Groq / Gemini integration through LangChain on the Python side; scoring and announcement filtering live as separate modules.</span></li>
+      <li><span data-tr>Fon metinlerini sentence-transformers ile vektörleştirip ChromaDB'de indeksledim; kullanıcı girdisiyle semantik arama yaparak ön eleme yapılmasını sağladım.</span><span data-en>Embedded fund documents with sentence-transformers and indexed them in ChromaDB, enabling semantic search over user input as a first-pass filter.</span></li>
+      <li><span data-tr>Arayüzü React + TypeScript + Vite ile yazdım; Recharts ile analiz grafikleri, jsPDF ile rapor dışa aktarma ekledim.</span><span data-en>Wrote the front end in React + TypeScript + Vite, with Recharts for analysis charts and jsPDF for report export.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">sentence-transformers</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">BeautifulSoup</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Recharts</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/fonradar-ai" target="_blank" rel="noopener">github.com/KadirDeliceli/fonradar-ai →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>Kuzey Kapısı — <span data-tr>Sinop Akıllı Turizm Platformu</span><span data-en>Sinop Smart Tourism Platform</span></h3>
+      <span class="when">2026.08 — 2026.09</span>
+    </div>
+    <p class="sub"><span data-tr>Rota Planlayıcı &amp; Sohbet Botu (Backend) — KUZKA</span><span data-en>Route Planner &amp; Chatbot (Backend) — KUZKA</span></p>
+    <ul class="pts">
+      <li><span data-tr>Sinop'ta ortalama turist kalış süresi 2,0 gün; platformu bu süreyi 7-8 güne çıkarma hedefiyle çok günlük rota ve deneyim önerileri üretecek şekilde kurguladım.</span><span data-en>Average tourist stay in Sinop is 2.0 days; the platform is designed to produce multi-day routes and experience suggestions aimed at extending that to 7–8 days.</span></li>
+      <li><span data-tr>Rota motoru, sohbet motoru, katalog ve yönetim modüllerini ayrı servisler olarak FastAPI üzerine kurdum.</span><span data-en>Built the route engine, chat engine, catalogue and admin modules as separate services on FastAPI.</span></li>
+      <li><span data-tr>Bağlam verilerini (doğa, mekânlar, lezzetler, kişiler, tescilli ürünler) Markdown, sistem istemlerini YAML olarak ayrıştırarak modüler ve sürdürülebilir bir RAG/LLM mimarisi kurdum — yeni içerik eklemek kod değişikliği gerektirmiyor.</span><span data-en>Separated context data (nature, places, food, people, registered products) into Markdown and system prompts into YAML, giving a modular RAG/LLM architecture where adding content needs no code change.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">YAML</span><span class="tag">Markdown</span><span class="tag">Python</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/kuzey-kapisi-sinop" target="_blank" rel="noopener">github.com/KadirDeliceli/kuzey-kapisi-sinop →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>Kuzey Kapısı KMP</h3>
+      <span class="when">2026.08 — <span data-tr>devam</span><span data-en>ongoing</span></span>
+    </div>
+    <p class="sub"><span data-tr>Çok Platformlu İstemci: Android · iOS · Web</span><span data-en>Multiplatform Client: Android · iOS · Web</span></p>
+    <ul class="pts">
+      <li><span data-tr>Kotlin Multiplatform ile paylaşımlı iş mantığını tek modülde topladım; Android, iOS ve web hedeflerini (JS ve WebAssembly) aynı kod tabanından çalıştırdım.</span><span data-en>Consolidated shared business logic in one Kotlin Multiplatform module and shipped Android, iOS and web targets (JS and WebAssembly) from the same codebase.</span></li>
+      <li><span data-tr>Compose Multiplatform ile arayüzü tek seferde yazdım; renk, tipografi ve aralık değerlerini tasarım token'ları hâlinde ayırarak yeniden kullanılabilir bir bileşen katmanı kurdum.</span><span data-en>Wrote the UI once with Compose Multiplatform, extracting colour, typography and spacing into design tokens to build a reusable component layer.</span></li>
+      <li><span data-tr>Erişilebilirlik kontrollerini ve tasarım sistemi dokümantasyonunu projeye dâhil ettim.</span><span data-en>Folded accessibility checks and design-system documentation into the project.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Kotlin Multiplatform</span><span class="tag">Compose Multiplatform</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">WebAssembly</span><span class="tag">Gradle</span><span class="tag">Design Tokens</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/Kuzey-Kapisi-KMP" target="_blank" rel="noopener">github.com/KadirDeliceli/Kuzey-Kapisi-KMP →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>Lezzet Kapısı API</h3>
+      <span class="when">2026.06</span>
+    </div>
+    <p class="sub"><span data-tr>Mikroservis Tabanlı Backend</span><span data-en>Microservice Backend</span></p>
+    <ul class="pts">
+      <li><span data-tr>Lezzet Kapısı mobil uygulamasının arkasındaki servisleri FastAPI ile ayrı ayrı yazdım: işletme yönetimi, menü yönetimi, sohbet asistanı, yorum sınıflandırma ve yemek görseli sınıflandırma.</span><span data-en>Built the services behind the Lezzet Kapısı app as separate FastAPI apps: business management, menu management, chat assistant, comment classification and food image classification.</span></li>
+      <li><span data-tr>Yorum sınıflandırma servisiyle kullanıcı yorumlarını otomatik etiketledim; yemek görseli sınıflandırma servisini bilgisayarlı görü modeliyle besledim.</span><span data-en>Auto-labelled user reviews through the comment-classification service and backed the food-image service with a computer-vision model.</span></li>
+      <li><span data-tr>İşletme ve menü verilerinin düzenli güncellenmesi için ayrı cronjob servisleri kurdum; sohbet asistanının bağlamını vektör veritabanında tuttum.</span><span data-en>Added dedicated cronjob services to keep business and menu data fresh, and kept the chat assistant's context in a vector store.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">Cronjob</span><span class="tag">Vector DB</span><span class="tag">CV / Classification</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/LezzetKapisi-API" target="_blank" rel="noopener">github.com/KadirDeliceli/LezzetKapisi-API →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>Lezzet Kapısı</h3>
+      <span class="when">2026.04 — 2026.05</span>
+    </div>
+    <p class="sub"><span data-tr>Android Mobil Uygulama — Bitirme Projesi (Ekip Projesi)</span><span data-en>Android App — Capstone Project (Team Project)</span></p>
+    <ul class="pts">
+      <li><span data-tr>Restoran ve menü inceleme süreçlerini kolaylaştıran yerel içerikli bir mobil uygulama; arayüzü Jetpack Compose, uygulama mantığını Kotlin ile geliştirdim.</span><span data-en>A local-content mobile app that simplifies browsing restaurants and menus; UI in Jetpack Compose, application logic in Kotlin.</span></li>
+      <li><span data-tr>"Lezzet Dedektifi" yapay zeka sohbet asistanını uygulamaya entegre ederek kullanıcılara kişiselleştirilmiş restoran ve menü önerileri sundum.</span><span data-en>Integrated the "Lezzet Dedektifi" AI assistant to give users personalised restaurant and menu recommendations.</span></li>
+      <li><span data-tr>Backend servislerini Retrofit ile bağladım; yemek kategorisi tespiti için YOLO tabanlı görü servisini uygulamaya entegre ettim.</span><span data-en>Wired the backend services in with Retrofit and integrated a YOLO-based vision service for food-category detection.</span></li>
+      <li><span data-tr>Firebase ile kullanıcı kimlik doğrulama ve gerçek zamanlı veri yönetimini hayata geçirdim.</span><span data-en>Implemented authentication and real-time data handling with Firebase.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">MVVM</span><span class="tag">Retrofit</span><span class="tag">Firebase</span><span class="tag">YOLO</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/Lezzet-Kapisi" target="_blank" rel="noopener">github.com/KadirDeliceli/Lezzet-Kapisi →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>Blion</h3>
+      <span class="when">2026.06 — 2026.07</span>
+    </div>
+    <p class="sub"><span data-tr>Sosyal Medya Uygulaması (Android)</span><span data-en>Social Media App (Android)</span></p>
+    <ul class="pts">
+      <li><span data-tr>Gönderi paylaşma, yorum, arkadaş ekleme / istek yönetimi ve birebir mesajlaşma modüllerini içeren bir sosyal medya uygulaması geliştirdim.</span><span data-en>Built a social app covering posting, comments, friend requests and one-to-one messaging.</span></li>
+      <li><span data-tr>Ekran – ViewModel – Repository katmanlarını ayırarak MVVM mimarisi kurdum; Firestore ile gerçek zamanlı akış ve mesajlaşma, Firebase Storage ile medya yükleme sağladım.</span><span data-en>Separated Screen – ViewModel – Repository layers into an MVVM architecture, with a real-time feed and messaging on Firestore and media uploads through Firebase Storage.</span></li>
+      <li><span data-tr>ExoPlayer ile akışa gömülü video oynatma ekledim; TopBar, BottomNav ve GradientButton gibi yeniden kullanılabilir Compose bileşenlerinden bir tasarım katmanı oluşturdum.</span><span data-en>Added in-feed video playback with ExoPlayer and assembled a design layer of reusable Compose components such as TopBar, BottomNav and GradientButton.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">MVVM</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Firebase Storage</span><span class="tag">ExoPlayer</span><span class="tag">Coil</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/Blion-Social-Media-App" target="_blank" rel="noopener">github.com/KadirDeliceli/Blion-Social-Media-App →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3>ChargeFinder</h3>
+      <span class="when">2026.06 — 2026.07</span>
+    </div>
+    <p class="sub"><span data-tr>Elektrikli Araç Şarj İstasyonu Bulucu (Android)</span><span data-en>EV Charging Station Finder (Android)</span></p>
+    <ul class="pts">
+      <li><span data-tr>Open Charge Map API'sinden Retrofit ile çektiğim şarj istasyonu verilerini Google Maps üzerinde kümeleme (clustering) ile görselleştirdim.</span><span data-en>Pulled charging-station data from the Open Charge Map API with Retrofit and rendered it on Google Maps with marker clustering.</span></li>
+      <li><span data-tr>Firebase Authentication ve Google Sign-In ile kimlik doğrulama akışını kurdum; istasyon verisi için Room tabanlı yerel katman ekledim.</span><span data-en>Set up authentication with Firebase Auth and Google Sign-In, and added a Room-backed local layer for station data.</span></li>
+      <li><span data-tr>Projeyi mock veriyle başlatıp canlı API entegrasyonuna geçirdim; veri erişimini repository deseniyle soyutlayarak iki kaynağı tek arayüz altında topladım.</span><span data-en>Started on mock data and migrated to the live API, abstracting data access behind a repository so both sources sit under one interface.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Retrofit</span><span class="tag">Google Maps</span><span class="tag">Room</span><span class="tag">Firebase Auth</span><span class="tag">Coroutines</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/ChargeFinder" target="_blank" rel="noopener">github.com/KadirDeliceli/ChargeFinder →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3><span data-tr>Film İnceleme Sitesi</span><span data-en>Film Review Site</span></h3>
+      <span class="when">2026.05 — 2026.06</span>
+    </div>
+    <p class="sub"><span data-tr>Kubernetes &amp; CI/CD — Bulut Bilişim Final Projesi</span><span data-en>Kubernetes &amp; CI/CD — Cloud Computing Final Project</span></p>
+    <ul class="pts">
+      <li><span data-tr>PHP + MySQL tabanlı film inceleme sitesini Docker imajına dönüştürüp Kubernetes üzerinde web ve veritabanı olmak üzere iki katmanlı bir yapıda çalıştırdım.</span><span data-en>Turned a PHP + MySQL review site into a Docker image and ran it on Kubernetes as a two-tier web and database setup.</span></li>
+      <li><span data-tr>Deployment, Service, PersistentVolume / PVC ve NetworkPolicy kaynaklarını yazarak ölçeklenebilir ve veritabanı erişimi kısıtlanmış bir mimari kurdum.</span><span data-en>Authored Deployment, Service, PersistentVolume / PVC and NetworkPolicy manifests for a scalable architecture with restricted database access.</span></li>
+      <li><span data-tr>Jenkins pipeline'ı ile GitHub webhook tetiklemeli build → Docker Hub push → Kubernetes deploy akışını uçtan uca otomatikleştirdim.</span><span data-en>Automated the full build → Docker Hub push → Kubernetes deploy chain in a Jenkins pipeline triggered by GitHub webhooks.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Docker Hub</span><span class="tag">GitHub Webhook</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Ubuntu</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/Film-Sitesi" target="_blank" rel="noopener">github.com/KadirDeliceli/Film-Sitesi →</a>
+  </article>
+
+  <article class="proj">
+    <div class="proj-top">
+      <h3><span data-tr>Ağ Yönlendirme Optimizasyonu</span><span data-en>Network Routing Optimisation</span></h3>
+      <span class="when">2025.12 — 2026.01</span>
+    </div>
+    <p class="sub"><span data-tr>Genetik Algoritma &amp; Q-Learning — Ekip Projesi</span><span data-en>Genetic Algorithm &amp; Q-Learning — Team Project</span></p>
+    <ul class="pts">
+      <li><span data-tr>Ağ yönlendirme problemini iki yaklaşımla karşılaştırmalı olarak çözen ekip projesinde Genetik Algoritma modülünü geliştirdim ve ekip koordinasyonunu yürüttüm.</span><span data-en>On a team project comparing two approaches to network routing, I built the Genetic Algorithm module and coordinated the team.</span></li>
+      <li><span data-tr>GA tarafında kromozom temsilini, uygunluk (fitness) fonksiyonunu, seçilim, çaprazlama ve mutasyon adımlarını NetworkX grafiği üzerinde kurguladım; kaynak/hedef düğüm, talep miktarı ve maliyet ağırlıklarını parametrik hale getirdim.</span><span data-en>Designed the chromosome representation, fitness function, selection, crossover and mutation steps over a NetworkX graph, parameterising source/target nodes, demand volume and cost weights.</span></li>
+      <li><span data-tr>Görev dağılımını ve modüllerin birleştirilmesini yönettim; sabit seed ile tekrarlanabilir deneyler kurup sonuçları Matplotlib ile karşılaştırmalı olarak raporladım.</span><span data-en>Managed task allocation and module integration, set up reproducible experiments with a fixed seed and reported comparative results with Matplotlib.</span></li>
+    </ul>
+    <div class="tags"><span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Tkinter</span></div>
+    <a class="repo" href="https://github.com/KadirDeliceli/Computer-Networks" target="_blank" rel="noopener">github.com/KadirDeliceli/Computer-Networks →</a>
+  </article>
+</section>
+
+<section id="beceriler">
+  <h2><span data-tr>Beceriler</span><span data-en>Skills</span></h2>
+  <dl style="margin:0">
+    <div class="skill-row">
+      <dt><span data-tr>Diller</span><span data-en>Languages</span></dt>
+      <dd>Python · Kotlin · SQL · TypeScript · Java · PHP</dd>
+    </div>
+    <div class="skill-row">
+      <dt>Backend &amp; API</dt>
+      <dd>FastAPI · REST API · Pydantic · async/await · Retrofit · Postman · pytest</dd>
+    </div>
+    <div class="skill-row">
+      <dt><span data-tr>Veritabanı</span><span data-en>Databases</span></dt>
+      <dd>MySQL · Firebase Firestore · Room (SQLite) · ChromaDB</dd>
+    </div>
+    <div class="skill-row">
+      <dt><span data-tr>Yapay Zeka &amp; ML</span><span data-en>AI &amp; ML</span></dt>
+      <dd><span data-tr>LangChain · RAG · Prompt Engineering · Semantik Arama (Embedding) · sentence-transformers · Groq · Gemini · Q-Learning · Genetik Algoritma · YOLOv11</span><span data-en>LangChain · RAG · Prompt Engineering · Semantic Search (Embeddings) · sentence-transformers · Groq · Gemini · Q-Learning · Genetic Algorithms · YOLOv11</span></dd>
+    </div>
+    <div class="skill-row">
+      <dt>Mobil / Multiplatform</dt>
+      <dd><span data-tr>Android (Kotlin, Jetpack Compose, Material 3) · MVVM · Coroutines · Kotlin Multiplatform · Compose Multiplatform · Firebase · Google Maps SDK</span><span data-en>Android (Kotlin, Jetpack Compose, Material 3) · MVVM · Coroutines · Kotlin Multiplatform · Compose Multiplatform · Firebase · Google Maps SDK</span></dd>
+    </div>
+    <div class="skill-row">
+      <dt><span data-tr>DevOps &amp; Araçlar</span><span data-en>DevOps &amp; Tools</span></dt>
+      <dd>Docker · Kubernetes · Jenkins · GitHub Actions · Docker Hub · Git · Linux (Ubuntu) · Agile / Scrum</dd>
+    </div>
+    <div class="skill-row">
+      <dt><span data-tr>Frontend &amp; Veri</span><span data-en>Frontend &amp; Data</span></dt>
+      <dd>React · Vite · Tailwind CSS · Recharts · Pandas · NumPy · NetworkX · Matplotlib · BeautifulSoup</dd>
+    </div>
+  </dl>
+</section>
+
+<section id="egitim">
+  <h2><span data-tr>Eğitim</span><span data-en>Education</span></h2>
+  <div class="edu">
+    <h3><span data-tr>Bilgisayar Mühendisliği (Lisans)</span><span data-en>BSc Computer Engineering</span></h3>
+    <span class="when">2023 — 2027</span>
+  </div>
+  <div class="org"><span data-tr>Bartın Üniversitesi</span><span data-en>Bartın University</span></div>
+  <p class="facts">
+    <span data-tr><strong>Not ortalaması:</strong> 3.65 / 4.00 · <strong>Beklenen mezuniyet:</strong> Haziran 2027<br>
+    <strong>İlgili dersler:</strong> Veri Yapıları, Algoritmalar, Veritabanı Yönetim Sistemleri, Yapay Zeka, Veri Madenciliği, Bulut Bilişim, Bilgisayar Ağları<br>
+    <strong>Diller:</strong> Türkçe (ana dil) · İngilizce (B1)</span>
+    <span data-en><strong>GPA:</strong> 3.65 / 4.00 · <strong>Expected graduation:</strong> June 2027<br>
+    <strong>Relevant coursework:</strong> Data Structures, Algorithms, Database Management Systems, Artificial Intelligence, Data Mining, Cloud Computing, Computer Networks<br>
+    <strong>Languages:</strong> Turkish (native) · English (B1)</span>
+  </p>
+</section>
+
+<footer>
+  <span data-tr>© 2026 Kadir Deliceli</span><span data-en>© 2026 Kadir Deliceli</span>
+  <a href="mailto:d.kadir5734@gmail.com">d.kadir5734@gmail.com</a>
+  <a href="https://github.com/KadirDeliceli" target="_blank" rel="noopener">GitHub</a>
+  <a href="https://www.linkedin.com/in/kadir-deliceli" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var tr = document.getElementById('btn-tr');
+  var en = document.getElementById('btn-en');
+  function set(lang){
+    document.documentElement.lang = lang;
+    tr.setAttribute('aria-pressed', lang === 'tr');
+    en.setAttribute('aria-pressed', lang === 'en');
+    document.title = lang === 'en'
+      ? 'Kadir Deliceli — Backend & AI Developer'
+      : 'Kadir Deliceli — Backend & Yapay Zeka Geliştirici';
+    try { localStorage.setItem('kd-lang', lang); } catch(e){}
+  }
+  tr.addEventListener('click', function(){ set('tr'); });
+  en.addEventListener('click', function(){ set('en'); });
+  var saved = null;
+  try { saved = localStorage.getItem('kd-lang'); } catch(e){}
+  if (!saved) {
+    saved = (navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+  }
+  set(saved === 'en' ? 'en' : 'tr');
+})();
+</script>
+</body>
+</html>
