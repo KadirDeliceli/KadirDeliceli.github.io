@@ -208,7 +208,7 @@
     </div>
     <div class="org"><span data-tr>Kuzey Anadolu Kalkınma Ajansı (KUZKA) — Sinop Yatırım Destek Ofisi</span><span data-en>North Anatolia Development Agency (KUZKA) — Sinop Investment Support Office</span></div>
     <ul class="pts">
-      <li><span data-tr><strong>FonRadar AI:</strong> Farklı kaynaklardan otomatik veri toplayan ve hibe/destek fonlarını uygunluk açısından LLM ile puanlayan tam yığın bir platform geliştirdim. Ajans uzmanlarının 4-5 gün süren manuel fon tarama sürecini 5-10 dakikaya indirdim.</span><span data-en><strong>FonRadar AI:</strong> Built a full-stack platform that scrapes grant and funding data from multiple sources and scores each fund for eligibility with an LLM, cutting the agency's manual review cycle from 4–5 days to 5–10 minutes.</span></li>
+      <li><span data-tr><strong>FonRadar AI:</strong> Ekip projesinde, farklı kaynaklardan otomatik veri toplayan ve hibe/destek fonlarını uygunluk açısından LLM ile puanlayan backend, veri kazıma ve yapay zeka katmanını geliştirdim. Ajans uzmanlarının 4-5 gün süren manuel fon tarama sürecini 5-10 dakikaya indirdim.</span><span data-en><strong>FonRadar AI:</strong> On a team project, built the backend, scraping and AI layers that collect grant and funding data from multiple sources and score each fund for eligibility with an LLM, cutting the agency's manual review cycle from 4–5 days to 5–10 minutes.</span></li>
       <li><span data-tr><strong>Kuzey Kapısı — Sinop Akıllı Turizm Platformu:</strong> LangChain ve RAG mimarisiyle akıllı rota planlayıcı ve yerel bilgi asistanı kurdum; Kotlin Multiplatform ile Android, iOS ve web istemcilerini tek kod tabanından yazdım.</span><span data-en><strong>Kuzey Kapısı — Sinop Smart Tourism Platform:</strong> Built a route planner and local knowledge assistant on LangChain and RAG, plus Android, iOS and web clients from a single Kotlin Multiplatform codebase.</span></li>
       <li><span data-tr>Servisleri REST API standartlarında tasarladım; uç noktaları Postman ile test edip Git üzerinden sürüm yönetimi yaptım ve Linux sunucu ortamında çalıştırdım.</span><span data-en>Designed the services to REST conventions, tested endpoints with Postman, managed versioning through Git and deployed on Linux servers.</span></li>
       <li><span data-tr>Yatırım Destek Ofisi ekibiyle haftalık iterasyonlar halinde çalışarak teknik çıktıları bölgesel yatırım ve hibe süreçlerine entegre ettim.</span><span data-en>Worked in weekly iterations with the Investment Support Office team, feeding technical output into regional investment and grant workflows.</span></li>
@@ -224,14 +224,13 @@
       <h3>FonRadar AI</h3>
       <span class="when">2026.08</span>
     </div>
-    <p class="sub"><span data-tr>Hibe &amp; Destek Analiz Platformu — KUZKA</span><span data-en>Grant &amp; Incentive Analysis Platform — KUZKA</span></p>
+    <p class="sub"><span data-tr>Hibe &amp; Destek Analiz Platformu — KUZKA (Ekip Projesi)</span><span data-en>Grant &amp; Incentive Analysis Platform — KUZKA (Team Project)</span></p>
     <ul class="pts">
-      <li><span data-tr>Fon ve destek programı verilerini otomatik toplayan, uygunluk kriterlerine göre LLM ile puanlayan tam yığın bir sistem. Ajans uzmanlarının iç kullanımı için geliştirildi.</span><span data-en>A full-stack system that collects funding programme data automatically and scores it for eligibility with an LLM — built for internal use by agency specialists.</span></li>
+      <li><span data-tr>Fon ve destek programı verilerini otomatik toplayan, uygunluk kriterlerine göre LLM ile puanlayan, ajans uzmanlarının iç kullanımı için geliştirilmiş ekip projesi. Ben backend, veri kazıma ve yapay zeka katmanlarını geliştirdim; arayüzü ekip arkadaşım yazdı.</span><span data-en>A team project that collects funding programme data automatically and scores it for eligibility with an LLM, built for internal use by agency specialists. I built the backend, scraping and AI layers; a teammate built the front end.</span></li>
       <li><span data-tr>Python tarafında FastAPI servisi, BeautifulSoup tabanlı kazıyıcı ve LangChain üzerinden Groq / Gemini entegrasyonu; skorlama ve duyuru filtreleme ayrı modüller olarak kuruldu.</span><span data-en>FastAPI service, a BeautifulSoup scraper and Groq / Gemini integration through LangChain on the Python side; scoring and announcement filtering live as separate modules.</span></li>
       <li><span data-tr>Fon metinlerini sentence-transformers ile vektörleştirip ChromaDB'de indeksledim; kullanıcı girdisiyle semantik arama yaparak ön eleme yapılmasını sağladım.</span><span data-en>Embedded fund documents with sentence-transformers and indexed them in ChromaDB, enabling semantic search over user input as a first-pass filter.</span></li>
-      <li><span data-tr>Arayüzü React + TypeScript + Vite ile yazdım; Recharts ile analiz grafikleri, jsPDF ile rapor dışa aktarma ekledim.</span><span data-en>Wrote the front end in React + TypeScript + Vite, with Recharts for analysis charts and jsPDF for report export.</span></li>
-    </ul>
-    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">sentence-transformers</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">BeautifulSoup</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Recharts</span></div>
+          </ul>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">sentence-transformers</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">BeautifulSoup</span><span class="tag">Pydantic</span></div>
     <a class="repo" href="https://github.com/KadirDeliceli/fonradar-ai" target="_blank" rel="noopener">github.com/KadirDeliceli/fonradar-ai →</a>
   </article>
 
@@ -245,8 +244,10 @@
       <li><span data-tr>Sinop'ta ortalama turist kalış süresi 2,0 gün; platformu bu süreyi 7-8 güne çıkarma hedefiyle çok günlük rota ve deneyim önerileri üretecek şekilde kurguladım.</span><span data-en>Average tourist stay in Sinop is 2.0 days; the platform is designed to produce multi-day routes and experience suggestions aimed at extending that to 7–8 days.</span></li>
       <li><span data-tr>Rota motoru, sohbet motoru, katalog ve yönetim modüllerini ayrı servisler olarak FastAPI üzerine kurdum.</span><span data-en>Built the route engine, chat engine, catalogue and admin modules as separate services on FastAPI.</span></li>
       <li><span data-tr>Bağlam verilerini (doğa, mekânlar, lezzetler, kişiler, tescilli ürünler) Markdown, sistem istemlerini YAML olarak ayrıştırarak modüler ve sürdürülebilir bir RAG/LLM mimarisi kurdum — yeni içerik eklemek kod değişikliği gerektirmiyor.</span><span data-en>Separated context data (nature, places, food, people, registered products) into Markdown and system prompts into YAML, giving a modular RAG/LLM architecture where adding content needs no code change.</span></li>
+      <li><span data-tr>Bas-konuş sesli sohbet akışını uçtan uca kurdum: kullanıcının ses kaydı Groq Whisper ile Türkçe metne çevriliyor, yazılı mesajlarla aynı oturum hafızasına yazılıyor, üretilen cevap ise istemcide cihazın kendi ses çıkışıyla okunuyor.</span><span data-en>Built the push-to-talk voice flow end to end: the user's recording is transcribed to Turkish with Groq Whisper, written into the same session memory as typed messages, and the reply is read back through the device's own speech output on the client.</span></li>
+      <li><span data-tr>Whisper'ın sessizlik ve gürültüde ürettiği bilinen halüsinasyon kalıplarını eleyen bir filtre yazdım; Türkçe büyük "İ" harfinin normalizasyon sorununu çözerek eşleştirmeyi güvenilir hale getirdim. STT sağlayıcısını sohbet LLM'inden bağımsız tutarak iki tarafı ayrı ayrı değiştirilebilir bıraktım.</span><span data-en>Added a filter that strips the hallucination patterns Whisper emits on silence or noise, fixing the Turkish dotted-İ normalisation issue so matching stays reliable. Kept the STT provider decoupled from the chat LLM so either side can be swapped independently.</span></li>
     </ul>
-    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">YAML</span><span class="tag">Markdown</span><span class="tag">Python</span></div>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Groq Whisper (STT)</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">YAML</span><span class="tag">Markdown</span><span class="tag">Python</span></div>
     <a class="repo" href="https://github.com/KadirDeliceli/kuzey-kapisi-sinop" target="_blank" rel="noopener">github.com/KadirDeliceli/kuzey-kapisi-sinop →</a>
   </article>
 
@@ -270,13 +271,13 @@
       <h3>Lezzet Kapısı API</h3>
       <span class="when">2026.06</span>
     </div>
-    <p class="sub"><span data-tr>Mikroservis Tabanlı Backend</span><span data-en>Microservice Backend</span></p>
+    <p class="sub"><span data-tr>Mikroservis Tabanlı Backend (Ekip Projesi)</span><span data-en>Microservice Backend (Team Project)</span></p>
     <ul class="pts">
-      <li><span data-tr>Lezzet Kapısı mobil uygulamasının arkasındaki servisleri FastAPI ile ayrı ayrı yazdım: işletme yönetimi, menü yönetimi, sohbet asistanı, yorum sınıflandırma ve yemek görseli sınıflandırma.</span><span data-en>Built the services behind the Lezzet Kapısı app as separate FastAPI apps: business management, menu management, chat assistant, comment classification and food image classification.</span></li>
-      <li><span data-tr>Yorum sınıflandırma servisiyle kullanıcı yorumlarını otomatik etiketledim; yemek görseli sınıflandırma servisini bilgisayarlı görü modeliyle besledim.</span><span data-en>Auto-labelled user reviews through the comment-classification service and backed the food-image service with a computer-vision model.</span></li>
-      <li><span data-tr>İşletme ve menü verilerinin düzenli güncellenmesi için ayrı cronjob servisleri kurdum; sohbet asistanının bağlamını vektör veritabanında tuttum.</span><span data-en>Added dedicated cronjob services to keep business and menu data fresh, and kept the chat assistant's context in a vector store.</span></li>
+      <li><span data-tr>Lezzet Kapısı mobil uygulamasını besleyen FastAPI tabanlı mikroservis backend’inin (işletme yönetimi, menü yönetimi, sohbet asistanı, yorum sınıflandırma ve yemek görseli sınıflandırma servisleri) geliştirilmesine ekip projesinde katkı sağladım.</span><span data-en>Contributed, on a team project, to the FastAPI microservice backend behind the Lezzet Kapısı app: business management, menu management, chat assistant, comment classification and food-image classification services.</span></li>
+      <li><span data-tr>Mimaride BERT tabanlı çok etiketli yorum sınıflandırma, YOLO ile yemek kategorisi tespiti, ChromaDB + LangChain ile sohbet asistanı ve Firebase üzerinde işletme/menü verisi yer alıyor.</span><span data-en>The architecture combines BERT-based multi-label comment classification, YOLO food-category detection, a ChromaDB + LangChain chat assistant and business/menu data on Firebase.</span></li>
+      <li><span data-tr>Depo; Docker imajları, Jenkins pipeline’ı, Kubernetes dağıtım manifesti ve işletme/menü verisini düzenli güncelleyen zamanlanmış cronjob servisleri içeriyor.</span><span data-en>The repo includes Docker images, a Jenkins pipeline, a Kubernetes deployment manifest and scheduled cronjob services that keep business and menu data fresh.</span></li>
     </ul>
-    <div class="tags"><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">Cronjob</span><span class="tag">Vector DB</span><span class="tag">CV / Classification</span></div>
+    <div class="tags"><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">BERT</span><span class="tag">YOLO</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">Docker</span><span class="tag">Jenkins</span></div>
     <a class="repo" href="https://github.com/KadirDeliceli/LezzetKapisi-API" target="_blank" rel="noopener">github.com/KadirDeliceli/LezzetKapisi-API →</a>
   </article>
 
@@ -287,12 +288,11 @@
     </div>
     <p class="sub"><span data-tr>Android Mobil Uygulama — Bitirme Projesi (Ekip Projesi)</span><span data-en>Android App — Capstone Project (Team Project)</span></p>
     <ul class="pts">
-      <li><span data-tr>Restoran ve menü inceleme süreçlerini kolaylaştıran yerel içerikli bir mobil uygulama; arayüzü Jetpack Compose, uygulama mantığını Kotlin ile geliştirdim.</span><span data-en>A local-content mobile app that simplifies browsing restaurants and menus; UI in Jetpack Compose, application logic in Kotlin.</span></li>
-      <li><span data-tr>"Lezzet Dedektifi" yapay zeka sohbet asistanını uygulamaya entegre ederek kullanıcılara kişiselleştirilmiş restoran ve menü önerileri sundum.</span><span data-en>Integrated the "Lezzet Dedektifi" AI assistant to give users personalised restaurant and menu recommendations.</span></li>
-      <li><span data-tr>Backend servislerini Retrofit ile bağladım; yemek kategorisi tespiti için YOLO tabanlı görü servisini uygulamaya entegre ettim.</span><span data-en>Wired the backend services in with Retrofit and integrated a YOLO-based vision service for food-category detection.</span></li>
+      <li><span data-tr>Restoran ve menü inceleme süreçlerini kolaylaştıran yerel içerikli mobil uygulamada işletme tarafı ekranlarını (menü görüntüleme, ekleme ve düzenleme, işletme istatistikleri, ayarlar), chatbot arayüzünü ve ortak Compose bileşenlerini (BottomBar, responsive NavBar) geliştirdim.</span><span data-en>On a local-content app that simplifies browsing restaurants and menus, I built the business-side screens (menu view, add and edit, business statistics, settings), the chatbot UI and shared Compose components (BottomBar, responsive NavBar).</span></li>
+      <li><span data-tr>"Lezzet Dedektifi" yapay zeka sohbet asistanının mobil arayüzünü tasarladım; asistan kullanıcılara kişiselleştirilmiş restoran ve menü önerileri sunuyor.</span><span data-en>Designed the mobile UI for the "Lezzet Dedektifi" AI assistant, which gives users personalised restaurant and menu recommendations.</span></li>
       <li><span data-tr>Firebase ile kullanıcı kimlik doğrulama ve gerçek zamanlı veri yönetimini hayata geçirdim.</span><span data-en>Implemented authentication and real-time data handling with Firebase.</span></li>
     </ul>
-    <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">MVVM</span><span class="tag">Retrofit</span><span class="tag">Firebase</span><span class="tag">YOLO</span></div>
+    <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">MVVM</span><span class="tag">Firebase</span></div>
     <a class="repo" href="https://github.com/KadirDeliceli/Lezzet-Kapisi" target="_blank" rel="noopener">github.com/KadirDeliceli/Lezzet-Kapisi →</a>
   </article>
 
@@ -362,7 +362,7 @@
   <dl style="margin:0">
     <div class="skill-row">
       <dt><span data-tr>Diller</span><span data-en>Languages</span></dt>
-      <dd>Python · Kotlin · SQL · TypeScript · Java · PHP</dd>
+      <dd>Python · Kotlin · SQL · Java · PHP</dd>
     </div>
     <div class="skill-row">
       <dt>Backend &amp; API</dt>
@@ -374,7 +374,7 @@
     </div>
     <div class="skill-row">
       <dt><span data-tr>Yapay Zeka &amp; ML</span><span data-en>AI &amp; ML</span></dt>
-      <dd><span data-tr>LangChain · RAG · Prompt Engineering · Semantik Arama (Embedding) · sentence-transformers · Groq · Gemini · Q-Learning · Genetik Algoritma · YOLOv11</span><span data-en>LangChain · RAG · Prompt Engineering · Semantic Search (Embeddings) · sentence-transformers · Groq · Gemini · Q-Learning · Genetic Algorithms · YOLOv11</span></dd>
+      <dd><span data-tr>LangChain · RAG · Prompt Engineering · Semantik Arama (Embedding) · sentence-transformers · Whisper (Konuşma Tanıma) · Groq · Gemini · Q-Learning · Genetik Algoritma · YOLOv11</span><span data-en>LangChain · RAG · Prompt Engineering · Semantic Search (Embeddings) · sentence-transformers · Whisper (Speech-to-Text) · Groq · Gemini · Q-Learning · Genetic Algorithms · YOLOv11</span></dd>
     </div>
     <div class="skill-row">
       <dt>Mobil / Multiplatform</dt>
@@ -385,8 +385,8 @@
       <dd>Docker · Kubernetes · Jenkins · GitHub Actions · Docker Hub · Git · Linux (Ubuntu) · Agile / Scrum</dd>
     </div>
     <div class="skill-row">
-      <dt><span data-tr>Frontend &amp; Veri</span><span data-en>Frontend &amp; Data</span></dt>
-      <dd>React · Vite · Tailwind CSS · Recharts · Pandas · NumPy · NetworkX · Matplotlib · BeautifulSoup</dd>
+      <dt><span data-tr>Veri &amp; Görselleştirme</span><span data-en>Data &amp; Visualisation</span></dt>
+      <dd>Pandas · NumPy · NetworkX · Matplotlib · BeautifulSoup</dd>
     </div>
   </dl>
 </section>
